@@ -6,7 +6,7 @@
 }
 @theme {
   --color-primary: #ffce22;
-  --color-primary-active: #ffd84d;
+  --color-primary-hover: #ffd84d;
   --color-border: #cdcdcd;
 
   --color-checkbox-active: #2469f6;
