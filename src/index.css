@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+@theme {
+  --color-primary: #ffce22;
+  --color-primary-active: #ffd84d;
+  --color-border: #cdcdcd;
+
+  --color-checkbox-active: #2469f6;
+  --color-checkbox-active-press: #5087f8;
+  --color-checkbox-border: #e1e1e1;
+  --color-checkbox-hover: #bdbdbd;
+  --color-checkbox-ring: #e9f0fe;
+}
+
+.card-shadow {
+  box-shadow: 0px 8px 15px 0px rgba(20, 20, 20, 0.12),
+    0px 0px 4px 0px rgba(20, 20, 20, 0.1);
+}
