@@ -7,7 +7,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 
 const CreateThreadForm = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, handleSubmit, reset, formState: { errors } } = useForm({
         // @ts-ignore
         resolver: zodResolver(threadSchema),
         defaultValues: {
@@ -18,7 +18,11 @@ const CreateThreadForm = () => {
     const { mutate, isPending } = useCreateThread()
 
     const onSubmit = async (data: ThreadFormInput) => {
-        mutate(data.startingNumber)
+        mutate(data.startingNumber, {
+            onSuccess: () => {
+                reset();
+            }
+        })
     };
 
 
