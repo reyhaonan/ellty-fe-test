@@ -1,5 +1,6 @@
 import type { BaseResponse } from "@/types/BaseResponse";
 import { apiFetch } from "./apiFetch";
+import type { Operation } from "@/types/Operation";
 
 type Message = {
   id: number;
@@ -7,7 +8,7 @@ type Message = {
   threadId: number;
   authorId: number;
   authorUsername: string;
-  operation: "add" | "sub" | "mul" | "div";
+  operation: Operation;
   operand: string;
   resultNumber: string;
   depth: number;

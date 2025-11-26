@@ -3,12 +3,14 @@ import ReplyForm from '../form/ReplyForm';
 import Button from './Button';
 import { format } from 'date-fns';
 import { useAuth } from '@/hooks/useAuth';
+import { humanReadableOperationLookup } from '@/utils/humanReadableOperationLookup';
+import type { Operation } from '@/types/Operation';
 
 interface Message {
     id: number;
     threadId: number;
     authorUsername: string;
-    operation: string;
+    operation: Operation;
     operand: string;
     resultNumber: string;
     depth: number;
@@ -29,7 +31,7 @@ export const Message = ({ message }: MessageProps) => {
             <div style={{ marginLeft: `${message.depth * 2}rem` }} className='border border-border p-4 my-2 rounded-lg'>
                 <div className="">
                     <span className='text-xs opacity-50'><b>{message.authorUsername}</b> at {format(message.createdAt, "dd-MM-yyyy hh:mm:ss")}</span>
-                    <h4 className='font-semibold text-xl'>{message.operation} {message.operand} = <u>{message.resultNumber}</u></h4>
+                    <h4 className='font-semibold text-xl'>{humanReadableOperationLookup[message.operation]} {message.operand} = <u>{message.resultNumber}</u></h4>
                 </div>
 
                 {!!user && <Button
